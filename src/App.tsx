@@ -5,9 +5,11 @@ import { Container } from "reactstrap";
 import Loading from "./components/Loading";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
+import { Filters } from "./components/Filters/Filters";
 import Profile from "./components/Profile";
 import { Auth0ContextInterface, withAuth0 } from "@auth0/auth0-react";
 import history from "./utils/history";
+import "semantic-ui-css/semantic.min.css";
 
 // styles
 import "./App.css";
@@ -21,8 +23,7 @@ interface AppProps {
 }
 
 class App extends Component<AppProps> {
-
-  render () {
+  render() {
     const { isLoading, error } = this.props.auth0;
 
     if (error) {
@@ -40,6 +41,7 @@ class App extends Component<AppProps> {
           <Container className="flex-grow-1 mt-5">
             <Switch>
               <Route path="/" exact component={Home} />
+              <Route path="/filters" exact component={Filters} />
               <Route path="/profile" component={Profile} />
             </Switch>
           </Container>
@@ -47,6 +49,6 @@ class App extends Component<AppProps> {
       </Router>
     );
   }
-};
+}
 
 export default withAuth0(App);

@@ -25,6 +25,7 @@
     "@types/react-dom": "^16.9.8",
     "@types/react-router-dom": "^5.1.5",
     "@types/reactstrap": "^8.5.1",
+    "@types/semantic-ui": "^2.2.7",
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "express-jwt": "^6.0.0",
@@ -38,7 +39,9 @@
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.4.3",
     "reactstrap": "^8.0.0",
-    "typescript": "^3.7.5"
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^2.1.2",
+    "typescript": "^3.8.0"
   },
   "devDependencies": {
     "@types/jest": "^24.9.1",

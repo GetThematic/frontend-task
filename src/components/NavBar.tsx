@@ -30,23 +30,23 @@ interface NavBarState {
 
 class NavBar extends Component<NavBarProps, NavBarState> {
   state = {
-    isOpen: false
+    isOpen: false,
   };
 
   toggle = () => {
     const { isOpen } = this.state;
     this.setState({ isOpen: !isOpen });
-  }
-  
+  };
+
   logoutWithRedirect = () => {
     const { logout } = this.props.auth0;
-  
+
     logout({
       returnTo: window.location.origin,
     });
-  }
+  };
 
-  render () {
+  render() {
     const { isOpen } = this.state;
     const { user, isAuthenticated, loginWithRedirect } = this.props.auth0;
 
@@ -66,6 +66,16 @@ class NavBar extends Component<NavBarProps, NavBarState> {
                     activeClassName="router-link-exact-active"
                   >
                     Home
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink
+                    tag={RouterNavLink}
+                    to="/filters"
+                    exact
+                    activeClassName="router-link-exact-active"
+                  >
+                    Filters
                   </NavLink>
                 </NavItem>
               </Nav>
@@ -106,8 +116,8 @@ class NavBar extends Component<NavBarProps, NavBarState> {
                         id="qsLogoutBtn"
                         onClick={() => this.logoutWithRedirect()}
                       >
-                        <FontAwesomeIcon icon="power-off" className="mr-3" /> Log
-                        out
+                        <FontAwesomeIcon icon="power-off" className="mr-3" />{" "}
+                        Log out
                       </DropdownItem>
                     </DropdownMenu>
                   </UncontrolledDropdown>
@@ -171,6 +181,6 @@ class NavBar extends Component<NavBarProps, NavBarState> {
       </div>
     );
   }
-};
+}
 
 export default withAuth0(NavBar);
